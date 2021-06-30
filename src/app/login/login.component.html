@@ -1,12 +1,12 @@
 <div class="form">
   <div class="container form-fields">
 
-    <h2 class="text-center">Sign In</h2>
+    <h1 class="text-center">Sign In</h1>
 
-    <form [formGroup]="login">
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
       <div class="row">
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 login">
           <mat-form-field appearance="standard">
             <mat-label>User Name</mat-label>
             <input matInput placeholder="User Name" formControlName="username">
@@ -14,16 +14,20 @@
           </mat-form-field>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 login">
           <mat-form-field appearance="standard">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" formControlName="password">
+            <input matInput [type]="hide? 'password': 'text'" placeholder="Password" formControlName="password">
+            <a mat-icon-button matSuffix (click)="hide =!hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
             <mat-error *ngIf="login.controls['password'].invalid">{{getpassword()}}</mat-error>
           </mat-form-field>
         </div>
       </div>
 
-      <div class="d-grid">
+      <div class="button">
         <button mat-raised-button color="warn">Submit</button>
       </div>
 
@@ -35,4 +39,3 @@
 
   </div>
 </div>
-

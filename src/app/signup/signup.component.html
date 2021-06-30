@@ -1,30 +1,32 @@
 <div class="form">
-  <div class="container form-fields">
+  <div class="container-fluid form-fields">
 
-    <h2 class="text-center">Sign Up</h2>
+    <h1 class="text-center">Sign Up</h1>
 
-    <form [formGroup]="user">
+    <form [formGroup]="user" (ngSubmit)="onSubmit()">
+
       <div class="row">
-
-        <div class="col-sm-6">
+        <div class="col-12 sign">
           <mat-form-field appearance="standard">
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="first_name" required>
-            <mat-error *ngIf="user.controls['first_name'].invalid">{{getfirst_name()}}</mat-error>
-          </mat-form-field>
-        </div>
-
-        <div class="col-sm-6">
-          <mat-form-field appearance="standard">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="last_name" required>
-            <mat-error *ngIf="user.controls['last_name'].invalid">{{getlast_name()}}</mat-error>
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id" required>
+            <mat-error *ngIf="user.controls['id'].invalid">{{getid()}}</mat-error>
           </mat-form-field>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-12 sign">
+          <mat-form-field appearance="standard">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-error *ngIf="user.controls['name'].invalid">{{getname()}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 sign">
           <mat-form-field appearance="standard">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required>
@@ -34,27 +36,35 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-12 sign">
           <mat-form-field appearance="standard">
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" required>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <a mat-icon-button matSuffix (click)="hide=!hide" [attr.aria.label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
             <mat-error *ngIf="user.controls['password'].invalid">{{getpassword()}}</mat-error>
           </mat-form-field>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-12 sign">
           <mat-form-field appearance="standard">
             <mat-label>Confirm Password</mat-label>
-            <input matInput formControlName="confirm_password" required>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" required>
             <mat-error *ngIf="user.controls['confirm_password'].invalid">{{getconfirm_password()}}</mat-error>
+            <a mat-icon-button matSuffix (click)="hide=!hide" [attr.aria.label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
           </mat-form-field>
         </div>
       </div>
 
-      <div class="d-grid">
-        <button mat-raised-button color="warn">Submit</button>
+      <div class="text-center button">
+        <button mat-raised-button color="warn">Creat Account</button>
       </div>
 
       <div class="content">
@@ -65,4 +75,3 @@
 
   </div>
 </div>
-

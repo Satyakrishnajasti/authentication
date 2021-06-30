@@ -10,10 +10,18 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  hide=true;
+
   login = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]]
   });
+
+  onSubmit(){
+    if(this.login.invalid){
+      return;
+    }
+  }
 
   getuser_name(){
     if(this.login.controls['username'].hasError('required')){

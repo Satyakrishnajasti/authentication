@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Signup } from '../core/models/signup';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,26 +10,37 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb: FormBuilder, private sev: AuthService) { }
+
+
+  store!: Signup[];
+  hide = true;
 
   user = this.fb.group({
-    first_name: ['', [Validators.required]],
-    last_name: ['', [Validators.required]],
+    id: ['', [Validators.required]],
+    name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     confirm_password: ['', [Validators.required]]
   });
 
+  onSubmit(){
+    if(this.user.invalid){
+      return;
+    }
+  }
 
-  getfirst_name() {
-    if (this.user.controls['first_name'].hasError('required')) {
-      return 'Form Field cannot be empty';
+
+  getid() {
+    if (this.user.controls['id'].hasError('required')) {
+      return 'Form field cannot be empty'
     }
     return '';
   }
 
-  getlast_name() {
-    if (this.user.controls['last_name'].hasError('required')) {
+
+  getname() {
+    if (this.user.controls['name'].hasError('required')) {
       return 'Form Field cannot be empty';
     }
     return '';
@@ -56,7 +69,38 @@ export class SignupComponent implements OnInit {
     return this.user.controls['confirm_password'].value == this.user.controls['password'].value ? 'not match' : '';
   }
 
+
+
+  data() {
+    this.sev.data().subscribe(
+      data => {
+        this.store = data;
+        console.log(data);
+      }
+    )
+  }
+
+  send() {
+
+    let user = new Signup();
+
+    user.id = this.user.controls['id'].value;
+    user.name = this.user.controls['name'].value;
+    user.email = this.user.controls['email'].value;
+    user.password = this.user.controls['password'].value;
+    user.confirm_password = this.user.controls['confirm_password'].value;
+
+    this.sev.signup(user).subscribe(
+      data => {
+        console.log(data);
+        alert("Successfully added");
+        this.user.reset();
+      }
+    )
+  }
+
   ngOnInit(): void {
+    this.data();
   }
 
 }

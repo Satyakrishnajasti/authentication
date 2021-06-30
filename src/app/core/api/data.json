@@ -1,0 +1,35 @@
+{
+  "user_details": [
+    {},
+    {
+      "id": "1",
+      "first_name": "Jim",
+      "last_name": "Parker",
+      "email": "jim@gmail.com",
+      "password": "123456",
+      "confirm_password": "123456"
+    },
+    {
+      "id": "2",
+      "first_name": "Ramesh",
+      "last_name": "Kumar",
+      "email": "ramesh@gmail.com",
+      "password": "123456",
+      "confirm_password": "123456"
+    },
+    {
+      "id": "3",
+      "name": "Suresh Kumar",
+      "email": "suresh@gmail.com",
+      "password": "123456",
+      "confirm_password": "123456"
+    },
+    {
+      "id": "mv9fbEB",
+      "name": "",
+      "email": "",
+      "password": "",
+      "confirm_password": ""
+    }
+  ]
+}

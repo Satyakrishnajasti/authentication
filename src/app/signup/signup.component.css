@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   background-image: url('../../assets//images/pexels-luis-dalvan-1770809.jpg');
-  background-position: bottom top;
+  background-position: bottom center;
   background-size: cover;
   font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -17,6 +17,14 @@
   padding:2rem;
   box-shadow: 0 0 40px rgba(0,0,0,0.2);
   background:#ffff;
+}
+
+.sign mat-form-field{
+  display: block;
+}
+
+.button{
+  padding:10px;
 }
 
 .content{
