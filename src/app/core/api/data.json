@@ -1,6 +1,5 @@
 {
   "user_details": [
-    {},
     {
       "id": "1",
       "first_name": "Jim",
@@ -25,11 +24,32 @@
       "confirm_password": "123456"
     },
     {
-      "id": "mv9fbEB",
-      "name": "",
-      "email": "",
-      "password": "",
-      "confirm_password": ""
+      "id": "4",
+      "name": "Ram Gopal",
+      "email": "ram@gmail.com",
+      "password": "Lock@123",
+      "confirm_password": "Lock@123"
+    },
+    {
+      "id": "5",
+      "name": "David Warner",
+      "email": "david@gmail.com",
+      "password": "Lock@123",
+      "confirm_password": "David@123"
+    },
+    {
+      "id": "6",
+      "name": "James",
+      "email": "james@gmail.com",
+      "password": "Lock@1234",
+      "confirm_password": "Lock@1234"
+    },
+    {
+      "id": "7",
+      "name": "Ford",
+      "email": "ford@gmail.com",
+      "password": "Lock@1234",
+      "confirm_password": "Lock@1234"
     }
   ]
 }

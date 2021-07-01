@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Signup } from '../core/models/signup';
 import { AuthService } from '../core/services/auth.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,14 @@ import { AuthService } from '../core/services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private sev: AuthService) { }
+  constructor(private fb: FormBuilder, private sev: AuthService, private snakbar: MatSnackBar) { }
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = "top";
+
+  openSnakbar() {
+    this.snakbar.open('Successfully added');
+  }
 
 
   store!: Signup[];
@@ -24,8 +33,8 @@ export class SignupComponent implements OnInit {
     confirm_password: ['', [Validators.required]]
   });
 
-  onSubmit(){
-    if(this.user.invalid){
+  onSubmit() {
+    if (this.user.invalid) {
       return;
     }
   }
@@ -93,10 +102,11 @@ export class SignupComponent implements OnInit {
     this.sev.signup(user).subscribe(
       data => {
         console.log(data);
-        alert("Successfully added");
+        this.openSnakbar();
         this.user.reset();
       }
     )
+
   }
 
   ngOnInit(): void {

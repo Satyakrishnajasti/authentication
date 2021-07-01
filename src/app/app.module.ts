@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SignupComponent } from './signup/signup.component';
 
@@ -40,7 +41,8 @@ import { AuthService } from './core/services/auth.service';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
