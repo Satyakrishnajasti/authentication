@@ -1,6 +1,24 @@
+.logout{
+  background-color:#064420;
+}
+
+.button_size{
+ color: #fff;
+ margin-left:1400px;
+ font-size: 18px;
+}
+
+@media screen and (max-width:1020px){
+  .button-size{
+    color:#fff;
+    margin-left:500px;
+  }
+}
+
+
 .form{
   margin:0px;
-  height:100vh;
+  height:95vh;
   display: flex;
   align-items: center;
   justify-content: center;

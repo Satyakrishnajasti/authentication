@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit {
     return '';
   }
 
+  logout(){
+    localStorage.clear();
+  }
+
 
 
 
